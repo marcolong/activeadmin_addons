@@ -18,9 +18,13 @@ $(function() {
     });
 
     $('select:not(.default-select)').each(function(i, el) {
+      var allowClear = $(el).data('allow_clear');
+      var placeholder = $(el).data('placeholder');
       if ($(el).closest('.filter_form').length > 0) {
         $(el).select2({
-          width: 'resolve'
+          width: 'resolve',
+          allowClear: allowClear,
+          placeholder: placeholder
         });
       } else {
         $(el).select2({
@@ -38,6 +42,8 @@ $(function() {
       var model = $(el).data('model');
       var collection = $(el).data('collection');
       var minimumInputLength = $(el).data('minimum_input_length');
+      var allowClear = $(el).data('allow_clear');
+      var placeholder = $(el).data('placeholder');
       var order = fields[0] + '_desc';
       var parentId = $(el).data('parent_id') || INVALID_PARENT_ID;
       var selectInstance;
@@ -100,6 +106,8 @@ $(function() {
         width: '80%',
         containerCssClass: 'nested-select-container',
         minimumInputLength: minimumInputLength,
+        allowClear: allowClear,
+        placeholder: placeholder,
         initSelection: function(element, callback) {
           var id = $(element).val();
           var text = $(element).data('selected') || '';

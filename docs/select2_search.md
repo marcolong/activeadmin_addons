@@ -6,7 +6,8 @@ To enable select2 search functionality you need to do the following:
 
 ```ruby
   f.input :category_id, as: :search_select, url: admin_categories_path,
-          fields: [:name, :description], display_name: 'name', minimum_input_length: 2
+          fields: [:name, :description], display_name: 'name', minimum_input_length: 2,
+          allow_clear: true, placeholder: 'Insert an element...'
 ```
 
 <img src="./images/select2-search-select.gif" />
@@ -20,3 +21,5 @@ To enable select2 search functionality you need to do the following:
 * `minimum_input_length`: **(optional)** Minimum number of characters required to initiate the
   search. It **defaults to**: `1`
 * `class`: **(optional)** You can pass extra classes for your field.
+* `allow_clear`: **(optional)** You can remove an already chose element.
+* `placeholder`: **(optional)** You can pass a placeholder.
