@@ -9,8 +9,6 @@ $(function() {
 
   function setupSelect2() {
     var INVALID_PARENT_ID = -1;
-    var allowClear = $(el).data('allow_clear');
-    var placeholder = $(el).data('placeholder');
 
     $('.select2-tags').each(function(i, el) {
       $(el).select2({
