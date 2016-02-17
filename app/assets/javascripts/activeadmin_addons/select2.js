@@ -9,6 +9,8 @@ $(function() {
 
   function setupSelect2() {
     var INVALID_PARENT_ID = -1;
+    var allowClear = $(el).data('allow_clear');
+    var placeholder = $(el).data('placeholder');
 
     $('.select2-tags').each(function(i, el) {
       $(el).select2({
@@ -20,7 +22,9 @@ $(function() {
     $('select:not(.default-select)').each(function(i, el) {
       if ($(el).closest('.filter_form').length > 0) {
         $(el).select2({
-          width: 'resolve'
+          width: 'resolve',
+          allowClear: allowClear,
+          placeholder: placeholder
         });
       } else {
         $(el).select2({
@@ -100,6 +104,8 @@ $(function() {
         width: '80%',
         containerCssClass: 'nested-select-container',
         minimumInputLength: minimumInputLength,
+        allowClear: allowClear,
+        placeholder: placeholder,
         initSelection: function(element, callback) {
           var id = $(element).val();
           var text = $(element).data('selected') || '';
